@@ -53,7 +53,7 @@
     imageData = [NSData dataWithContentsOfURL:dic[@"url"] options:NSDataReadingMappedIfSafe error:nil];
     UIImage *image = [UIImage imageWithData:imageData];
     MingTableViewCell *cell = dic[@"cell"];
-    [cell.imageView setImage:image];
+    [cell.mingImage setImage:image];
 }
 
 /**

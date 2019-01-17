@@ -57,7 +57,7 @@
         image = [self scaleToSize:image size:(CGSize)CGSizeMake(100, 100)];
     }
     HeroTableViewCell *cell = dic[@"cell"];
-    [cell.imageView setImage:image];
+    [cell.heroImageView setImage:image];
 }
 
 /**
