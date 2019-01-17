@@ -48,6 +48,11 @@
 		F79A7D8C21EC80FC004F06B1 /* item.json in Resources */ = {isa = PBXBuildFile; fileRef = F79A7D8821EC80FC004F06B1 /* item.json */; };
 		F79A7D8D21EC80FC004F06B1 /* ming.json in Resources */ = {isa = PBXBuildFile; fileRef = F79A7D8921EC80FC004F06B1 /* ming.json */; };
 		F79A7D8E21EC80FC004F06B1 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = F79A7D8A21EC80FC004F06B1 /* summoner.json */; };
+		F7AA54C421F07D5B008F5052 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA54BA21F07D5B008F5052 /* SVRadialGradientLayer.m */; };
+		F7AA54C521F07D5B008F5052 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA54BD21F07D5B008F5052 /* SVProgressAnimatedView.m */; };
+		F7AA54C621F07D5B008F5052 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA54C021F07D5B008F5052 /* SVProgressHUD.m */; };
+		F7AA54C721F07D5B008F5052 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA54C121F07D5B008F5052 /* SVIndefiniteAnimatedView.m */; };
+		F7AA54C821F07D5B008F5052 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7AA54C221F07D5B008F5052 /* SVProgressHUD.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +112,16 @@
 		F79A7D8821EC80FC004F06B1 /* item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item.json; sourceTree = "<group>"; };
 		F79A7D8921EC80FC004F06B1 /* ming.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ming.json; sourceTree = "<group>"; };
 		F79A7D8A21EC80FC004F06B1 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = summoner.json; sourceTree = "<group>"; };
+		F7AA54BA21F07D5B008F5052 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		F7AA54BB21F07D5B008F5052 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		F7AA54BC21F07D5B008F5052 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		F7AA54BD21F07D5B008F5052 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		F7AA54BE21F07D5B008F5052 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		F7AA54BF21F07D5B008F5052 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		F7AA54C021F07D5B008F5052 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		F7AA54C121F07D5B008F5052 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		F7AA54C221F07D5B008F5052 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		F7AA54C321F07D5B008F5052 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +233,7 @@
 		F79A7D6721EC752E004F06B1 /* WzryLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				F7AA54B921F07D5B008F5052 /* SVProgressHUD */,
 				F7832CDB21EDD7EA00BABEEA /* ming */,
 				F74EC4C821ED7857001C12A1 /* item */,
 				F74EC4BE21ED755A001C12A1 /* hero */,
@@ -244,6 +260,23 @@
 				F79A7D8A21EC80FC004F06B1 /* summoner.json */,
 			);
 			path = resource;
+			sourceTree = "<group>";
+		};
+		F7AA54B921F07D5B008F5052 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F7AA54BA21F07D5B008F5052 /* SVRadialGradientLayer.m */,
+				F7AA54BB21F07D5B008F5052 /* SVIndefiniteAnimatedView.h */,
+				F7AA54BC21F07D5B008F5052 /* SVProgressHUD.h */,
+				F7AA54BD21F07D5B008F5052 /* SVProgressAnimatedView.m */,
+				F7AA54BE21F07D5B008F5052 /* SVProgressHUD-Prefix.pch */,
+				F7AA54BF21F07D5B008F5052 /* SVRadialGradientLayer.h */,
+				F7AA54C021F07D5B008F5052 /* SVProgressHUD.m */,
+				F7AA54C121F07D5B008F5052 /* SVIndefiniteAnimatedView.m */,
+				F7AA54C221F07D5B008F5052 /* SVProgressHUD.bundle */,
+				F7AA54C321F07D5B008F5052 /* SVProgressAnimatedView.h */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +343,7 @@
 				F76D888921EF086F00EDA57D /* 80107-big.jpg in Resources */,
 				F76D888421EF086F00EDA57D /* 80109-big.jpg in Resources */,
 				F76D889221EF086F00EDA57D /* 80104.jpg in Resources */,
+				F7AA54C821F07D5B008F5052 /* SVProgressHUD.bundle in Resources */,
 				F79A7D7521EC752F004F06B1 /* LaunchScreen.storyboard in Resources */,
 				F76D888B21EF086F00EDA57D /* 80115.jpg in Resources */,
 				F79A7D8E21EC80FC004F06B1 /* summoner.json in Resources */,
@@ -344,16 +378,20 @@
 				F7832CD421EDBCE000BABEEA /* ItemDetailViewController.m in Sources */,
 				F79A7D8321EC78D0004F06B1 /* HeroTableViewController.m in Sources */,
 				F76D886821EEE90500EDA57D /* SummonerCollectionViewCell.m in Sources */,
+				F7AA54C421F07D5B008F5052 /* SVRadialGradientLayer.m in Sources */,
+				F7AA54C621F07D5B008F5052 /* SVProgressHUD.m in Sources */,
 				F7832CD121EDB03C00BABEEA /* HeroOfficialInfoViewController.m in Sources */,
 				F79A7D7821EC752F004F06B1 /* main.m in Sources */,
 				F79A7D8621EC7BAA004F06B1 /* HeroTableViewCell.m in Sources */,
 				F76D889A21EF182600EDA57D /* SummonerDetailViewController.m in Sources */,
 				F74EC4CB21ED8934001C12A1 /* HeroDetailViewController.m in Sources */,
+				F7AA54C721F07D5B008F5052 /* SVIndefiniteAnimatedView.m in Sources */,
 				F7832CDA21EDCE7E00BABEEA /* MingTableViewCell.m in Sources */,
 				F76D886521EEE2B800EDA57D /* SummonerViewController.m in Sources */,
 				F74EC4C421ED75F6001C12A1 /* ItemTableViewController.m in Sources */,
 				F7832CD721EDCE1A00BABEEA /* MingTableViewController.m in Sources */,
 				F79A7D6A21EC752E004F06B1 /* AppDelegate.m in Sources */,
+				F7AA54C521F07D5B008F5052 /* SVProgressAnimatedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,15 +534,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8ZTWLR4VWF;
+				DEVELOPMENT_TEAM = Y97Q74UT3T;
 				INFOPLIST_FILE = WzryLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wzll7.WzryLibrary.WzryLibrary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wzll7.WzryLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -513,15 +551,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8ZTWLR4VWF;
+				DEVELOPMENT_TEAM = Y97Q74UT3T;
 				INFOPLIST_FILE = WzryLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wzll7.WzryLibrary.WzryLibrary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wzll7.WzryLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

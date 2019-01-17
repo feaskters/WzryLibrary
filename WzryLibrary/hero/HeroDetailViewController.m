@@ -8,6 +8,8 @@
 
 #import "HeroDetailViewController.h"
 #import "HeroOfficialInfoViewController.h"
+#import <Photos/PHAssetChangeRequest.h>
+#import "SVProgressHUD.h"
 @interface HeroDetailViewController ()
 
 @end
@@ -56,6 +58,89 @@
     NSThread *thread_bg = [[NSThread alloc]initWithTarget:self selector:@selector(setImage:) object:dic_bg];
     [thread_sm start];
     [thread_bg start];
+    //设置长按保存u图片
+    bgImageView.userInteractionEnabled = true;
+    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longpress:)];
+    [bgImageView addGestureRecognizer:gesture];
+    //跳出提示框
+    UILabel *message = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height/3, self.view.frame.size.width, 20)];
+    message.text = @"长按可以保存图片哦!";
+    message.textAlignment = NSTextAlignmentCenter;
+    message.backgroundColor = [UIColor blackColor];
+    message.textColor = [UIColor grayColor];
+    [self.view addSubview:message];
+    [self performSelector:@selector(vanishMessage:) withObject:message afterDelay:2];
+}
+
+-(void)vanishMessage:(UILabel *)label{
+    [label removeFromSuperview];
+}
+
+-(void)longpress:(UILongPressGestureRecognizer *)longPress{
+    if (longPress.delaysTouchesEnded) {
+        //显示弹出框列表选择
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"保存图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            //[PHAssetChangeRequest creationRequestForAssetFromImage:self.bgImage.image];
+            
+            //--------------------------
+            //(1) 获取当前的授权状态
+            PHAuthorizationStatus lastStatus = [PHPhotoLibrary authorizationStatus];
+            
+            //(2) 请求授权
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                //回到主线程
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    if(status == PHAuthorizationStatusDenied) //用户拒绝（可能是之前拒绝的，有可能是刚才在系统弹框中选择的拒绝）
+                    {
+                        if (lastStatus == PHAuthorizationStatusNotDetermined) {
+                            //说明，用户之前没有做决定，在弹出授权框中，选择了拒绝
+                            [SVProgressHUD showErrorWithStatus:@"保存失败"];
+                            return;
+                        }
+                        // 说明，之前用户选择拒绝过，现在又点击保存按钮，说明想要使用该功能，需要提示用户打开授权
+                        [SVProgressHUD showInfoWithStatus:@"失败！请在系统设置中开启访问相册权限"];
+                        
+                    }
+                    else if(status == PHAuthorizationStatusAuthorized) //用户允许
+                    {
+                        //保存图片---调用上面封装的方法
+                        //1 把图片保存到系统相册中，结束后调用 image:didFinishSavingWithError:contextInfo:方法（回调方法）
+                        //2 回调方法的格式有要求，可以进入头文件查看
+                        UIImageWriteToSavedPhotosAlbum(self.bgImage.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+                    }
+                    else if (status == PHAuthorizationStatusRestricted)
+                    {
+                        [SVProgressHUD showErrorWithStatus:@"系统原因，无法访问相册"];
+                    }
+                });
+            }];
+            
+        }];
+        [alert addAction:saveAction];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+
+}
+
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if(error)
+    {
+        NSLog(@"保存图片失败");
+        return;
+    }
+    NSLog(@"保存图片成功");
+}
+
+
+//保存图片
+-(void)saveImage:(UIAlertAction *)action{
     
 }
 
