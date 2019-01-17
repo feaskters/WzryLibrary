@@ -10,6 +10,7 @@
 #import "HeroOfficialInfoViewController.h"
 #import <Photos/PHAssetChangeRequest.h>
 #import "SVProgressHUD.h"
+
 @interface HeroDetailViewController ()
 
 @end
@@ -99,10 +100,12 @@
                         if (lastStatus == PHAuthorizationStatusNotDetermined) {
                             //说明，用户之前没有做决定，在弹出授权框中，选择了拒绝
                             [SVProgressHUD showErrorWithStatus:@"保存失败"];
+                             [SVProgressHUD dismissWithDelay:0.5];
                             return;
                         }
                         // 说明，之前用户选择拒绝过，现在又点击保存按钮，说明想要使用该功能，需要提示用户打开授权
                         [SVProgressHUD showInfoWithStatus:@"失败！请在系统设置中开启访问相册权限"];
+                         [SVProgressHUD dismissWithDelay:0.5];
                         
                     }
                     else if(status == PHAuthorizationStatusAuthorized) //用户允许
@@ -111,10 +114,14 @@
                         //1 把图片保存到系统相册中，结束后调用 image:didFinishSavingWithError:contextInfo:方法（回调方法）
                         //2 回调方法的格式有要求，可以进入头文件查看
                         UIImageWriteToSavedPhotosAlbum(self.bgImage.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+                        [SVProgressHUD showWithStatus:@"保存成功"];
+                        [SVProgressHUD dismissWithDelay:0.5];
+                       
                     }
                     else if (status == PHAuthorizationStatusRestricted)
                     {
                         [SVProgressHUD showErrorWithStatus:@"系统原因，无法访问相册"];
+                         [SVProgressHUD dismissWithDelay:0.5];
                     }
                 });
             }];
