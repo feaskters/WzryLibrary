@@ -35,6 +35,7 @@
     [self.view addSubview:bgImageView];
     [self.view sendSubviewToBack:bgImageView];
     //背景设置结束------------------------
+    self.title =[[NSString alloc]initWithFormat:@"%@",self.summonerDetail[@"summoner_name"]] ;
     //大图
     UIImage *bgimage = [[UIImage alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:[[NSString alloc]initWithFormat:@"%@-big",self.summonerDetail[@"summoner_id"]] ofType:@"jpg"] ];
     [self.summonerImage setImage:bgimage];
